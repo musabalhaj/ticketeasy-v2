@@ -16,6 +16,7 @@ $(document).ready(function($) {
 			
 			"lengthMenu":[[10,25,50,100,-1],[10,25,50,100,"الكل"]],
 			"pagingType":"numbers",
+			"order":[[0,"desc"]],
 			"language":{
 				"lengthMenu":"عرض _MENU_ سجلات",
 				"zeroRecords":"لا توجد سجلات!",

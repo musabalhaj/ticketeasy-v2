@@ -52,6 +52,25 @@
                         placeholder="@lang('sentence.Date')" value="{{ $Event->date }}">
                     </div>
                 </div>
+                @if (auth()->user()->role == 'Admin')
+                <div class="col-12">
+                    <div class="form-group row mr-2">
+                        <label for="organizer_id" class="col-sm-6 col-form-label">
+                            @lang('sentence.Organizer')<span class="star">*</span>
+                        </label>
+                        <select class="form-control" id="organizer_id" name="organizer_id">
+                            @foreach($Organizers as $Organizer)
+                                <option value="{{$Organizer->id}}"
+                                    @if($Organizer->id == $Event->organizer_id)
+                                    selected
+                                    @endif
+                                    >
+                                    {{$Organizer->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @endif
                 <div class="col-12">
                     <div class="form-group row mr-2">
                         <label for="description" class="col-sm-6 col-form-label">

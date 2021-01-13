@@ -18,6 +18,7 @@ $(document).ready(function($) {
 			
 			"lengthMenu":[[10,25,50,100,-1],[10,25,50,100,"All"]],
 			"pagingType":"numbers",
+			"order":[[0,"desc"]],
 			"language":{
 				"lengthMenu":"Show _MENU_ Records.",
 				"zeroRecords":"No Records To Show!",

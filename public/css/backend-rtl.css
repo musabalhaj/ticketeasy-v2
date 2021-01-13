@@ -160,23 +160,23 @@ td .btn{
   height: 242px !important;
   margin-left: 20px;
 }
-.create input,.create textarea{
+.create input,.create textarea,.create select{
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-left: 4px solid #1f2937 !important;
   border-right: 4px solid #1f2937 !important;
 }
-.create input:focus,.create textarea:focus{
+.create input:focus,.create textarea:focus,.create select:focus{
   border-top: 1px solid #1f2937 !important;
   border-bottom: 1px solid #1f2937 !important;
 }
-.edit input,.edit textarea{
+.edit input,.edit textarea,.edit select{
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   border-left: 4px solid #1f2937 !important;
   border-right: 4px solid #1f2937 !important;
 }
-.edit input:focus,.edit textarea:focus{
+.edit input:focus,.edit textarea:focus,.edit select:focus{
   border-top: 1px solid #1f2937 !important;
   border-bottom: 1px solid #1f2937 !important;
 }

@@ -167,7 +167,7 @@ return [
         'amount'                =>'المبلغ',
         'qty'                   =>'الكمية',
         'category_id'           =>'الصنف',
-        'doctor_id'             =>'الطبيب',
+        'organizer_id'          =>'المنظم',
         'days'                  =>'ايام العمل',
         'start_at'              =>'زمن البداية',
         'end_at'                =>'زمن النهاية',

@@ -184,6 +184,7 @@ return [
         'image'                 => 'Image',
         'status'                => 'Status',
         'role'                  => 'Role',
+        'organizer_id'          => 'Organizer',
     ],
 
 ];

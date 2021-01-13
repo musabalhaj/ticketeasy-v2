@@ -20,7 +20,7 @@ class EventController extends Controller
         if (auth()->user()->role == 'Admin') {
             return view('Admin/Event.index')
             ->with('Events', Event::all())
-            ->with('Users', User::where('role','Organizer')->get());
+            ->with('Users', User::where('role','Organizer')->get(['id','name']));
         }
         else{
             return view('Admin/Event.organizerEvent')
@@ -35,7 +35,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('Admin/Event.create');
+        return view('Admin/Event.create')
+        ->with('Organizers',User::where('role','Organizer')->get());
     }
 
     /**
@@ -60,7 +61,7 @@ class EventController extends Controller
             'date'=>$request->date,
             'location'=>$request->location,
             'image'=>$imageName,
-            'organizer_id'=>auth()->user()->id
+            'organizer_id'=>$request->organizer_id
         ]);
 
         session()->flash('success','Added Successfully');
@@ -87,7 +88,9 @@ class EventController extends Controller
      */
     public function edit(Event $Event)
     {
-        return view('Admin/Event.edit')->with('Event',$Event);
+        return view('Admin/Event.edit')
+        ->with('Event',$Event)
+        ->with('Organizers',User::where('role','Organizer')->get());
     }
 
     /**
@@ -121,7 +124,8 @@ class EventController extends Controller
                 'price'=>$request->price,
                 'date'=>$request->date,
                 'location'=>$request->location,
-                'image'=>$imageName
+                'image'=>$imageName,
+                'organizer_id'=>$request->organizer_id
             ]);
         }
         // if the user donnot want to update event image
@@ -134,6 +138,7 @@ class EventController extends Controller
                 'price'=>$request->price,
                 'date'=>$request->date,
                 'location'=>$request->location,
+                'organizer_id'=>$request->organizer_id
             ]);
         }
 

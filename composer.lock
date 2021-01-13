@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8fcb005efb2aa617f48aff744c6808f",
+    "content-hash": "29f32ca0f9977ad7886925640b0bf8b9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1012,6 +1012,50 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "kataki/syber-pay",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kataki-kh/Syber_pay-package.git",
+                "reference": "3b4e1e366d4358dd4b484c82a008bfd20e9b6706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kataki-kh/Syber_pay-package/zipball/3b4e1e366d4358dd4b484c82a008bfd20e9b6706",
+                "reference": "3b4e1e366d4358dd4b484c82a008bfd20e9b6706",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kataki\\Syber_pay\\SyberServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kataki\\Syber_pay\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kataki",
+                    "email": "kataki.kh2017@gmail.com"
+                }
+            ],
+            "description": "This package is simple way to integrate syber pay online payment sulotion on your laravel api",
+            "support": {
+                "issues": "https://github.com/kataki-kh/Syber_pay-package/issues",
+                "source": "https://github.com/kataki-kh/Syber_pay-package/tree/v1.2.0"
+            },
+            "time": "2020-11-27T22:18:21+00:00"
         },
         {
             "name": "laravel/framework",
