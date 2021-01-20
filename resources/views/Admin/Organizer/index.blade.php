@@ -51,9 +51,6 @@
                                     <td>{{ $Organizer->name }}</td>
                                     <td>{{ $Organizer->email }}
                                     <td style="display: flex;">
-                                        <a class="btn btn-info  btn-sm" href="{{route('Organizer.show',$Organizer->id)}}">
-                                            <i class="fa fa-eye"></i> 
-                                        </a>
                                         <a class="btn btn-success  btn-sm" href="{{route('Organizer.edit',$Organizer->id)}}">
                                             <i class="fa fa-edit"></i> 
                                         </a>

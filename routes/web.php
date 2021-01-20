@@ -14,6 +14,8 @@ use App\Http\Controllers\GoogleController;
 |
 */
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,10 +25,6 @@ Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Auth::routes();
-
-// Route::get('lang/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::get('lang/{locale}', 'HomeController@lang');
 
@@ -52,5 +50,6 @@ Route::group(['middleware' => ['auth','Organizer']], function () {
 
 Route::group(['middleware' => ['auth','User']], function () {
     
-    
+    Route::resource('Booking', 'BookingController');
+
 });

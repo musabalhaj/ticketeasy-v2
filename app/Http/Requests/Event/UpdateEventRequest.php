@@ -24,8 +24,8 @@ class UpdateEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|min:4|max:50',
-            'description'=>'required|min:4|max:500',
+            'title'=>'required|min:4|max:80',
+            'description'=>'required|min:4|max:700',
             'tickets'=>'required|Numeric',
             'price'=>'required|Numeric',
             'date'=>'required|Date',

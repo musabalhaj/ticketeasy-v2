@@ -200,3 +200,13 @@ td .btn{
 .login-page .login-card-body, .register-page .register-card-body{
   background-color: #1f2937  !important;
 }
+
+.widget-user-image img{
+  width: 1032px !important;
+  height: 300px !important;
+}
+.widget-user-2 .widget-user-username,
+.widget-user-2 .widget-user-desc {
+  margin-left: 0px !important;
+  margin-top: 5px !important;
+}

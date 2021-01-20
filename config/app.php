@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -67,7 +68,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'GMT',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Kataki\Syber_pay\SyberServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -192,3 +192,12 @@ td .btn{
   font-size: 1.2rem;
 }
 
+.widget-user-image img{
+  width: 1032px !important;
+  height: 300px !important;
+}
+.widget-user-2 .widget-user-username,
+.widget-user-2 .widget-user-desc {
+  margin-right: 0px !important;
+  margin-top: 5px !important;
+}

@@ -185,6 +185,7 @@ return [
         'status'                => 'Status',
         'role'                  => 'Role',
         'organizer_id'          => 'Organizer',
+        'c_password'            => 'Password Confirmation',
     ],
 
 ];

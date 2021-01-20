@@ -51,9 +51,6 @@
                                     <td>{{ $User->name }}</td>
                                     <td>{{ $User->email }}
                                     <td style="display: flex;">
-                                        <a class="btn btn-info  btn-sm" href="{{route('User.show',$User->id)}}">
-                                            <i class="fa fa-eye"></i> 
-                                        </a>
                                         <a class="btn btn-success  btn-sm" href="{{route('User.edit',$User->id)}}">
                                             <i class="fa fa-edit"></i> 
                                         </a>

@@ -23,7 +23,7 @@
             <ul class="list-group">
                 @foreach($errors->all() as $error)
                 <li class="list-gorup-item">
-                    @lang(''.$error.'')
+                    {{ trans(''.$error.'')}}
                 </li>
                 @endforeach
             </ul>
