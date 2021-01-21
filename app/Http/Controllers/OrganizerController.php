@@ -17,10 +17,22 @@ class OrganizerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $Search = $request->search;
+        if ($Search && $Search != ' ') {
+            $Organizer = User::where('name','LIKE',"%{$Search}%")->where('role','Organizer')->paginate(10);
+            if ($Organizer->count() == 0) {
+                $Organizer = User::where('role','Organizer')->paginate(10);
+
+                session()->flash('error','No Record With This Name');
+            }
+        }
+        else{
+            $Organizer = User::where('role','Organizer')->paginate(10);
+        }
         return view('Admin/Organizer.index')
-        ->with('Organizers',User::where('role','Organizer')->get(['id','name','email']));
+        ->with('Organizers',$Organizer);
     }
 
     /**

@@ -16,10 +16,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Request $request)
     {
+        $Search = $request->search;
+        if ($Search && $Search != ' ') {
+            $User = User::where('name','LIKE',"%{$Search}%")->where('role','User')->paginate(10);
+            if ($User->count() == 0) {
+                $User = User::where('role','User')->paginate(10);
+
+                session()->flash('error','No Record With This Name');
+            }
+        }
+        else{
+            $User = User::where('role','User')->paginate(10);
+        }
         return view('Admin/User.index')
-        ->with('Users',User::where('role','User')->get(['id','name','email']));
+        ->with('Users',$User);
     }
 
     /**

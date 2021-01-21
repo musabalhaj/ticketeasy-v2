@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
 {
@@ -14,10 +15,29 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $Search = $request->search;
+        $userName = DB::table('users')->where('name','LIKE',"%{$Search}%")->where('role','User')->first();
+        if ($Search && $Search != ' ') {
+            if ($userName) {
+                $Booking = Booking::where('user_id','LIKE',"%{$userName->id}%")->paginate(10);
+                if ($Booking->count() == 0) {
+                    $Booking = Booking::paginate(10);
+
+                    session()->flash('error','No Record With This Name');
+                }
+            }
+            else{
+                $Booking = Booking::paginate(10);
+                session()->flash('error','No Record With This Name');
+            }
+        }
+        else{
+            $Booking = Booking::paginate(10);
+        }
         return view('Admin/Booking.index')
-        ->with('Bookings', Booking::all())
+        ->with('Bookings', $Booking)
         ->with('Users', User::where('role','User')->get(['id','name']))
         ->with('Events', Event::get(['id','title']));
     }

@@ -93,7 +93,7 @@
   margin-right: 29px !important;
   margin-left: 12px !important;
 }
-.dataTables_wrapper .dataTables_length select {
+/* .dataTables_wrapper .dataTables_length select {
   border-left: 4px solid #1f2937 !important;
   border-right: 4px solid #1f2937 !important;
 }
@@ -104,6 +104,15 @@
   padding: 5px;
   border-left: 4px solid #1f2937 !important;
   border-right: 4px solid #1f2937 !important;
+} */
+.paginate a{
+  color: #ffffff !important;
+  background-color:  #1f2937 !important;
+  margin: 5px;
+}
+.paginate-showing{
+  direction: ltr;
+  margin-top: 10px !important;
 }
 .page-item.active .page-link {
   z-index: 3;

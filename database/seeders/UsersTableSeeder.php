@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -35,5 +36,6 @@ class UsersTableSeeder extends Seeder
             'role'=>'User'
 
         ]);
+        \App\Models\User::factory()->count(10000)->create();
     }
 }

@@ -15,16 +15,41 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $Search = $request->search;
+            //----------------  Admin----------------//
         if (auth()->user()->role == 'Admin') {
+            if ($Search && $Search != ' ') {
+                $Event = Event::where('title','LIKE',"%{$Search}%")->paginate(10);
+                if ($Event->count() == 0) {
+                    $Event = Event::paginate(10);
+
+                    session()->flash('error','No Record With This Title');
+                }
+            }
+            else{
+                $Event = Event::paginate(10);
+            }
             return view('Admin/Event.index')
-            ->with('Events', Event::all())
+            ->with('Events', $Event)
             ->with('Users', User::where('role','Organizer')->get(['id','name']));
         }
+           //----------------  Organizer----------------// 
         else{
+            if ($Search && $Search != ' ') {
+                $Event = Event::where('title','LIKE',"%{$Search}%")->where('organizer_id',auth()->user()->id)->paginate(10);
+                if ($Event->count() == 0) {
+                    $Event = Event::where('organizer_id',auth()->user()->id)->paginate(10);
+
+                    session()->flash('error','No Record With This Title');
+                }
+            }
+            else{
+                $Event = Event::where('organizer_id',auth()->user()->id)->paginate(10);
+            }
             return view('Admin/Event.organizerEvent')
-            ->with('Events', Event::where('organizer_id',auth()->user()->id)->get());
+            ->with('Events', $Event);
         }
     }
 

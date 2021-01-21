@@ -14,4 +14,8 @@ return [
 
     'previous' => '&laquo; السابق',
     'next'     => 'التالي &raquo;',
+    'Showing' => 'عرض',
+    'Of' => 'من أصل',
+    'To' => 'الى',
+    'Results' => 'سجل',
 ];

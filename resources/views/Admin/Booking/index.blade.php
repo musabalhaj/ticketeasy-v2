@@ -33,9 +33,20 @@
                     </button>
                 </div>
             </div>
-            <div class="card-body">   
+            <div class="card-body"> 
+                <div class="custom-form create mb-2">
+                    <form action="{{ route('Booking.index') }}" method="GET">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" name="search" value="{{ request()->query('search') }}"
+                            placeholder="@lang('sentence.Search By Name')" style="max-width: 373px;">
+                            <span class="input-group-append">
+                              <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>  
                 <div class="table-responsive">
-                    <table class="table table-hover datatable">
+                    <table class="table table-hover">
                         <thead class="bg-info">
                             <tr>
                                 <th>@lang('sentence.#ID')</th>
@@ -86,6 +97,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="paginate">
+                    {{ $Bookings->appends(['search' => request()->query('search') ])->links() }}
                 </div>
             </div>
         </div>

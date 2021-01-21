@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
         
         <!-- Theme style -->
-        <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/adminlte.css') }}">
         <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
     </head>
 @elseif (str_replace('_', '-', app()->getLocale()) == 'ar')
