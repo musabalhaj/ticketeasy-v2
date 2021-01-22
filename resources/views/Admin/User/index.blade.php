@@ -11,6 +11,7 @@
         </ol>
     </nav> 
 </h6>
+<hr>
 @endsection
 @section('content')
     @if (count($Users) == 0)
@@ -84,5 +85,4 @@
             </div>
         </div>
     @endif
-
 @endsection

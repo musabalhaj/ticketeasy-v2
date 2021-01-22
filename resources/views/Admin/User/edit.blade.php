@@ -9,6 +9,7 @@
         </ol>
     </nav>
 </h6>
+<hr>
 @endsection
 @section('content')
 
@@ -52,8 +53,8 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group row mr-2">
-                        <label for="password" class="col-sm-6 col-form-label">
-                            @lang('sentence.Password')
+                        <label for="password" class="col-sm-12 col-form-label">
+                            @lang('sentence.Password') <span class="badge badge-danger">@lang('sentence.If you don`t Want to change password leave it Empty')</span>
                         </label>
                         <input type="password" class="form-control" name="password" id="password" autocomplete="off" 
                         placeholder="@lang('sentence.Password')" value="{{old('password')}}" maxlength="10">

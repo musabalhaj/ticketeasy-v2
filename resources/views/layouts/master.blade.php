@@ -14,7 +14,6 @@
     <div class="content-header">
       <div class="container-fluid">
         @yield('content-header')
-        <hr>
       </div>
     </div>
     <!-- Main content -->

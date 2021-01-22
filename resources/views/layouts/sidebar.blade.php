@@ -14,7 +14,7 @@
           <img src="{{asset('images/user.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->user()->name}}</a>
+          <a href="{{ route('profile',encrypt(auth()->user()->id)) }}" class="d-block">{{auth()->user()->name}}</a>
         </div>
       </div>
       <!-- Sidebar Menu -->
@@ -49,7 +49,7 @@
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link {{ Request::is('Organizer*') ? 'active' : ''}}">
-              <i class="nav-icon fas fa-sitemap"></i>
+              <i class="nav-icon fas fa-user-secret"></i>
               <p>
                 @lang('sentence.Organizers')
                 <i class="right fas fa-angle-left"></i>

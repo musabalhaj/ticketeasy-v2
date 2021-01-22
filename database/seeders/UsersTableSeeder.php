@@ -36,6 +36,6 @@ class UsersTableSeeder extends Seeder
             'role'=>'User'
 
         ]);
-        \App\Models\User::factory()->count(10000)->create();
+        \App\Models\User::factory()->count(100)->create();
     }
 }

@@ -25,12 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $Events = DB::table('events')->latest()->take(5)->get()->sortByDesc('id');
+        $Bookings = DB::table('bookings')->latest()->take(5)->get();
         $EventSum = DB::table('events')->count('id');
         $OrgnaizerSum = DB::table('users')->where('role','Organizer')->count('id');
+        // $Users = DB::table('users')->where('role','User')->get();
         $UserSum = DB::table('users')->where('role','User')->count('id');
         switch (Auth()->user()->role) {
             case 'Admin':
                 return view('Admin.Dashboard')
+                ->with('Events',$Events)
+                ->with('Bookings',$Bookings)
                 ->with('Event',$EventSum)
                 ->with('Orgnaizer',$OrgnaizerSum)
                 ->with('User',$UserSum);

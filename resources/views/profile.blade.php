@@ -4,8 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('home')}}">@lang('sentence.Home')</a></li>
-            <li class="breadcrumb-item"><a href="{{route('Organizer.index')}}">@lang('sentence.Organizers')</a></li>
-            <li class="breadcrumb-item active" aria-current="page">@lang('sentence.Edit')</li>
+            <li class="breadcrumb-item active" aria-current="page">@lang('sentence.Profile')</li>
         </ol>
     </nav>
 </h6>
@@ -15,7 +14,7 @@
 
 <div class="card card-outline card-success">
     <div class="card-header">
-      <h3 class="card-title"><i class="fa fa-edit"></i> @lang('sentence.Edit Organizer')</h3>
+      <h3 class="card-title"><i class="fa fa-user"></i> @lang('sentence.User Profile')</h3>
     </div>
     @if($errors->any())
         <div class="alert alert-danger mr-2 ml-2 mt-2">
@@ -29,7 +28,7 @@
         </div>
     @endif
     <div class="card-body">
-        <form method="POST" action="{{ route('Organizer.update',$Organizer) }}"  enctype="multipart/form-data">
+        <form method="POST" action="{{ route('updateProfile',encrypt($User->id)) }}"  enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row custom-form edit">
@@ -39,7 +38,7 @@
                             @lang('sentence.Name')<span class="star">*</span>
                         </label>
                         <input type="text" class="form-control" name="name" id="name" required autocomplete="off" 
-                        placeholder="@lang('sentence.Name')" value="{{$Organizer->name}}">
+                        placeholder="@lang('sentence.Name')" value="{{$User->name}}">
                     </div>
                 </div>
                 <div class="col-12">
@@ -48,7 +47,7 @@
                             @lang('sentence.Email')<span class="star">*</span>
                         </label>
                         <input type="email" class="form-control" name="email" id="email" required autocomplete="off" 
-                        placeholder="@lang('sentence.Email')" value="{{$Organizer->email}}">
+                        placeholder="@lang('sentence.Email')" value="{{$User->email}}">
                     </div>
                 </div>
                 <div class="col-12">

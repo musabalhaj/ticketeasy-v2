@@ -10,7 +10,7 @@
         </ol>
     </nav>
 </h6>
-
+<hr>
 @endsection
 @section('content')
 

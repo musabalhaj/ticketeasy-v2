@@ -9,6 +9,7 @@
         </ol>
     </nav>
 </h6>
+<hr>
 @endsection
 @section('content')
 <!-- Widget: Organizer widget style 2 -->

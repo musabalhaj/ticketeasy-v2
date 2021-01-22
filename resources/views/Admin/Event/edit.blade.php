@@ -10,7 +10,7 @@
         </ol>
     </nav>
 </h6>
-
+<hr>
 @endsection
 @section('content')
 
@@ -52,8 +52,17 @@
                         placeholder="@lang('sentence.Date')" value="{{ $Event->date }}">
                     </div>
                 </div>
-                @if (auth()->user()->role == 'Admin')
                 <div class="col-12">
+                    <div class="form-group row mr-2">
+                        <label for="description" class="col-sm-6 col-form-label">
+                            @lang('sentence.Description')<span class="star">*</span>
+                        </label>
+                        <textarea name="description" id="description" class="form-control" cols="30" rows="5"
+                        required placeholder="@lang('sentence.Description')">{{ $Event->description }}</textarea>
+                    </div>
+                </div>
+                @if (auth()->user()->role == 'Admin')
+                <div class="col-6">
                     <div class="form-group row mr-2">
                         <label for="organizer_id" class="col-sm-6 col-form-label">
                             @lang('sentence.Organizer')<span class="star">*</span>
@@ -71,16 +80,11 @@
                     </div>
                 </div>
                 @endif
+                @if (auth()->user()->role == 'Organizer')
                 <div class="col-12">
-                    <div class="form-group row mr-2">
-                        <label for="description" class="col-sm-6 col-form-label">
-                            @lang('sentence.Description')<span class="star">*</span>
-                        </label>
-                        <textarea name="description" id="description" class="form-control" cols="30" rows="5"
-                        required placeholder="@lang('sentence.Description')">{{ $Event->description }}</textarea>
-                    </div>
-                </div>
-                <div class="col-6">
+                @else
+                    <div class="col-6">
+                @endif
                     <div class="form-group row mr-2">
                         <label for="tickets" class="col-sm-6 col-form-label">
                             @lang('sentence.Tickets')<span class="star">*</span>
@@ -107,10 +111,10 @@
                         placeholder="@lang('sentence.Location')" value="{{ $Event->location }}">
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group row mr-2">
                         <label for="image" class="col-sm-6 col-form-label">
-                            @lang('sentence.Image')
+                            @lang('sentence.Image') <span class="badge badge-danger">@lang('sentence.If you don`t Want to change Image leave it Empty')</span>
                         </label>
                         <input type="file" class="form-control" name="image" id="image"  autocomplete="off" 
                         placeholder="@lang('sentence.Image')" value="{{ $Event->image }}">

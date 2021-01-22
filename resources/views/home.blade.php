@@ -7,6 +7,7 @@
         </ol>
     </nav>
 </h6>
+<hr>
 @endsection
 @section('content')
 <h5 class="mb-2">Info Box</h5>

@@ -1,6 +1,10 @@
 *{
   font-family: 'Segoe UI Semibold', sans-serif;
 }
+hr{
+  margin-top: 1%;
+  margin-bottom: 0%;
+}
 .star{
   color: red;
 }
@@ -45,9 +49,11 @@
   height: 21px !important;
 }
 .dropdown-menu-lg {
-  min-width: 79px !important;
+  max-width: 70px !important;
+  min-width: 60px !important;
   background-color: #1f2937 !important;
   margin-top: 10px;
+  left: 18px !important;
 }
 .dropdown-menu-lg a:hover{
   background-color: #7cc5f2 !important;
