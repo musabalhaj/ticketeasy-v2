@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\ChartJsController;
+use App\Http\Controllers\ReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,7 @@ use App\Http\Controllers\ChartJsController;
 */
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/report', [ReportController::class, 'index'])->name('report');
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,12 +34,12 @@ Route::get('lang/{locale}', 'HomeController@lang');
 Route::group(['middleware' => ['auth']], function () {
     
     Route::get('/home', 'HomeController@index')->name('home');
-
+    
     Route::get('/profile/{id}', 'ProfileController@profile')->name('profile');
-
+    
     Route::put('/updateProfile/{id}', 'ProfileController@updateProfile')->name('updateProfile');
-
-    Route::get('report', [ChartJsController::class, 'index'])->name('report');
+    
+    Route::get('/report', 'ReportController@index')->name('report.index');
     
 });
 
