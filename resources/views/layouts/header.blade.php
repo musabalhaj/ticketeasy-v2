@@ -13,6 +13,7 @@
         <!-- Font Awesome Icons -->
         <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
         <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/pace-progress/pace-theme-flat-top.css') }}">
         
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
@@ -32,6 +33,7 @@
         <!-- Font Awesome Icons -->
         <link rel="icon" type="image/png" href="{{asset('images/logo.png')}}"/>
         <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('plugins/pace-progress/pace-theme-flat-top.css') }}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('css/adminlte-rtl.css') }}">
         <link rel="stylesheet" href="{{ asset('css/backend-rtl.css') }}">

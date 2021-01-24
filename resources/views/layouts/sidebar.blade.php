@@ -19,7 +19,7 @@
       </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column text-sm" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
          
@@ -125,7 +125,31 @@
               <li class="nav-item">
                 <a href="{{ route('report.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>@lang('sentence.Reports')</p>
+                  <p>@lang('sentence.All Reports')</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('report.user') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>@lang('sentence.Users Reports')</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('report.organizer') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>@lang('sentence.Organizers Reports')</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('report.event') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>@lang('sentence.Events Reports')</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('report.booking') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>@lang('sentence.Bookings Reports')</p>
                 </a>
               </li>
             </ul>
@@ -158,7 +182,7 @@
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column text-sm" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
        
@@ -213,7 +237,7 @@
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column text-sm" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
        

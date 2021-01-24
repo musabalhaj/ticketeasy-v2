@@ -83,17 +83,17 @@
                                         @endif
                                     </td>
                                     <td style="display: flex;">
-                                        <a class="btn btn-info  btn-sm" href="{{route('Event.show',$Event->id)}}">
-                                            <i class="fa fa-eye"></i> 
+                                        <a class="btn btn-info btn-flat btn-xs" href="{{route('Event.show',$Event->id)}}">
+                                            <i class="fa fa-eye"></i> @lang('sentence.Show')
                                         </a>
-                                        <a class="btn btn-success  btn-sm" href="{{route('Event.edit',$Event->id)}}">
-                                            <i class="fa fa-edit"></i> 
+                                        <a class="btn btn-success btn-flat btn-xs" href="{{route('Event.edit',$Event->id)}}">
+                                            <i class="fa fa-edit"></i> @lang('sentence.Edit')
                                         </a>
                                         <form method="POST" action="{{route('Event.destroy',$Event->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger  btn-sm confirm">
-                                                <i class="fa fa-trash"></i> 
+                                            <button type="submit" class="btn btn-danger btn-flat btn-xs confirm">
+                                                <i class="fa fa-trash"></i> @lang('sentence.Delete')
                                             </button>
                                         </form> 
                                     </td> 

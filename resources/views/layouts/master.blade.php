@@ -1,15 +1,15 @@
 @include('layouts.header')
 @if (str_replace('_', '-', app()->getLocale()) == 'en')
-  <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" dir="ltr">
+  <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed pace-primary" dir="ltr">
 @else
-  <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" dir="rtl">
+  <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed pace-primary" dir="rtl">
 @endif
 <div class="wrapper"> 
   @include('layouts.navbar')        
   @include('layouts.sidebar')
   @auth
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper text-sm">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">

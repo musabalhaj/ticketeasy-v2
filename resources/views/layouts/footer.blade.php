@@ -22,7 +22,7 @@
     <script src="{{ asset('js/backend-rtl.js') }}"></script>
     @endif
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('plugins/pace-progress/pace.min.js') }}"></script>
 </body>
 </html>

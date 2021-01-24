@@ -63,14 +63,14 @@
                                     <td>{{ $User->name }}</td>
                                     <td>{{ $User->email }}
                                     <td style="display: flex;">
-                                        <a class="btn btn-success  btn-sm" href="{{route('User.edit',$User->id)}}">
-                                            <i class="fa fa-edit"></i> 
+                                        <a class="btn btn-success btn-flat btn-sm" href="{{route('User.edit',$User->id)}}">
+                                            <i class="fa fa-edit"></i> @lang('sentence.Edit')
                                         </a>
                                         <form method="POST" action="{{route('User.destroy',$User->id)}}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger  btn-sm confirm">
-                                                <i class="fa fa-trash"></i> 
+                                            <button type="submit" class="btn btn-danger btn-flat btn-sm confirm">
+                                                <i class="fa fa-trash"></i> @lang('sentence.Delete')
                                             </button>
                                         </form> 
                                     </td> 

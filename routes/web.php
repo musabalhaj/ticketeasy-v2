@@ -40,6 +40,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/updateProfile/{id}', 'ProfileController@updateProfile')->name('updateProfile');
     
     Route::get('/report', 'ReportController@index')->name('report.index');
+
+    Route::get('/report/user', 'ReportController@user')->name('report.user');
+
+    Route::get('/report/organizer', 'ReportController@organizer')->name('report.organizer');
+
+    Route::get('/report/event', 'ReportController@event')->name('report.event');
+    
+    Route::get('/report/booking', 'ReportController@booking')->name('report.booking');
     
 });
 
