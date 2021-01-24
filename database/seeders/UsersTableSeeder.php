@@ -15,27 +15,27 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('users')->insert([
-        //     'name' => 'System Admin',
-        //     'email' => 'musab1marly@gmail.com',
-        //     'password' => bcrypt('1421'),
-        //     'role'=>'Admin'
+        DB::table('users')->insert([
+            'name' => 'System Admin',
+            'email' => 'musab1marly@gmail.com',
+            'password' => bcrypt('1421'),
+            'role'=>'Admin'
 
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'Organizer',
-        //     'email' => 'Organizer@gmail.com',
-        //     'password' => bcrypt('1421'),
-        //     'role'=>'Organizer'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Organizer',
+            'email' => 'Organizer@gmail.com',
+            'password' => bcrypt('1421'),
+            'role'=>'Organizer'
 
-        // ]);
-        // DB::table('users')->insert([
-        //     'name' => 'User',
-        //     'email' => 'User@gmail.com',
-        //     'password' => bcrypt('1421'),
-        //     'role'=>'User'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'User@gmail.com',
+            'password' => bcrypt('1421'),
+            'role'=>'User'
 
-        // ]);
+        ]);
         \App\Models\User::factory()->count(100)->create();
     }
 }
