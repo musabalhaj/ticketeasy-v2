@@ -43,6 +43,7 @@ class UserController extends Controller
             'name'=>'required|min:4|max:50',
             'email'=>'required|unique:users|email',
             'password'=>'required|min:4|max:25',
+            'password_confirmation' => 'required|same:password',
         );
 
         // validate all data that come from request
@@ -98,33 +99,65 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // fields you want to validate
-        $rules = array(
-            'name'=>'required|min:4|max:50',
-            'email'=>'required|email',
-            // 'password'=>'required|min:4|max:25',
-        );
+        //if the user type a new password
+        if (!empty($request->password)) {
+            // fields you want to validate
+            $rules = array(
+                'name'=>'required|min:4|max:50',
+                'email'=>'required|email',
+                'password'=>'required|min:4|max:25|confirmed',
+            );
 
-        // validate all data that come from request
-        $validator = Validator::make($request->all(),$rules);
+            // validate all data that come from request
+            $validator = Validator::make($request->all(),$rules);
 
-        // check if you have errors in the data
-        if ($validator->fails()) {
+            // check if you have errors in the data
+            if ($validator->fails()) {
 
-            return response()->json($validator->errors(),401);
+                return response()->json($validator->errors(),401);
+            }
+
+            // else update with requested data   
+            else{
+                $User = User::where('role','User')->findOrFail($id);
+
+                $User->update([
+                    'name'=>$request->name,
+                    'email'=>$request->email,
+                    'password'=> Hash::make($request->password),
+                ]);
+
+                return ['Success'=>'User Updated Successfuly.'];
+            }
         }
-
-        // else create new User with requested data   
+        // if empty password
         else{
-            $User = User::where('role','User')->findOrFail($id);
+            // fields you want to validate
+            $rules = array(
+                'name'=>'required|min:4|max:50',
+                'email'=>'required|email',
+            );
 
-            $User->update([
-                'name'=>$request->name,
-                'email'=>$request->email,
-                'password'=> Hash::make($request->password),
-            ]);
+            // validate all data that come from request
+            $validator = Validator::make($request->all(),$rules);
 
-            return ['Success'=>'User Updated Successfuly.'];
+            // check if you have errors in the data
+            if ($validator->fails()) {
+
+                return response()->json($validator->errors(),401);
+            }
+
+            // else update with requested data   
+            else{
+                $User = User::where('role','User')->findOrFail($id);
+
+                $User->update([
+                    'name'=>$request->name,
+                    'email'=>$request->email,
+                ]);
+
+                return ['Success'=>'User Updated Successfuly.'];
+            }
         }
     }
 

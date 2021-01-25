@@ -16,6 +16,7 @@ return [
   'Search' => 'بحث',
   'Full Name' => 'الإسم كامل',
   'Retype password' => 'اعد كتابة كلمة المرور',
+  'Password Confirmation' => 'تأكيد كلمة المرور',
   'I agree to the' => 'أنا أوافق على',
   'Terms' => 'شروط الخدمة',
   '- OR -' => '- أو -',

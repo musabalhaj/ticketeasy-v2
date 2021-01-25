@@ -61,6 +61,15 @@
                 </div>
                 <div class="col-12">
                     <div class="form-group row mr-2">
+                        <label for="password" class="col-sm-6 col-form-label">
+                            @lang('sentence.Password Confirmation')<span class="star">*</span>
+                        </label>
+                        <input id="password-confirm" type="password" class="form-control" required autocomplete="off"
+                        name="password_confirmation" required autocomplete="off" placeholder="@lang('sentence.Password Confirmation')" maxlength="10">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group row mr-2">
                         <label for="inputPassword3" class="col-sm-6 col-form-label"></label>
                         <input type="submit" class=" form-control btn btn-info btn-flat btn-block" value="@lang('sentence.Add')"> 
                     </div>

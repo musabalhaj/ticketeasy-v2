@@ -39,7 +39,7 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 // -----------------------google login---------------------//
 
 // -----------------------sayber pay route---------------------//
-Route::post('transactions/syber/payment/{order_id}', [PaymentController::class, 'SyberPay']);
+Route::post('transactions/syber/payment/{order_id}', [PaymentController::class, 'SyberPay'])->name('payment');
 Route::post('transactions/syber/notify', [PaymentController::class, 'notify']);
 Route::post('transactions/syber/return', [PaymentController::class, 'return']);
 Route::post('transactions/syber/cancel', [PaymentController::class, 'cancel']);

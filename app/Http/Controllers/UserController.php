@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\CreateUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -99,6 +100,23 @@ class UserController extends Controller
     {
         //if the user type a new password
         if (!empty($request->password)) {
+
+            // fields you want to validate
+            $rules = array(
+                'name'=>'required|min:4|max:50',
+                'email'=>'required|email',
+                'password'=>'required|min:4|max:25|confirmed',
+            );
+
+            // validate all data that come from request
+            $validator = Validator::make($request->all(),$rules);
+
+            // check if you have errors in the data
+            if ($validator->fails()) {
+
+                return redirect()->back()->withErrors($validator);
+            }
+            // update after pass the validation
             $User->update([
                 'name'=>$request->name,
                 'email'=>$request->email,

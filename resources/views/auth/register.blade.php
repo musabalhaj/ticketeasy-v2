@@ -57,7 +57,7 @@
               </div>
               <div class="input-group mb-3">
                 <input id="password-confirm" type="password" class="form-control" 
-                       name="password_confirmation" required autocomplete="new-password" placeholder="@lang('sentence.Retype password')">
+                       name="password_confirmation" required autocomplete="new-password" placeholder="@lang('sentence.Password Confirmation')">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-lock"></span>

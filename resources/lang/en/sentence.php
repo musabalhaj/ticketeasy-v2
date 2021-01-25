@@ -17,6 +17,7 @@ return [
   'Search' => 'Search',
   'Full Name' => 'Full Name',
   'Retype password' => 'Retype password',
+  'Password Confirmation' => 'Password Confirmation',
   'I agree to the' => 'I agree to the',
   'Terms' => 'Terms',
   '- OR -' => '- OR -',

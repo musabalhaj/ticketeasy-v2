@@ -56,7 +56,6 @@
                                 <th>@lang('sentence.Amount')</th>
                                 <th>@lang('sentence.Ticket Status')</th>
                                 <th>@lang('sentence.Status')</th>
-                                <th>@lang('sentence.Action')</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,18 +79,6 @@
                                         @else
                                             <span class="badge badge-danger">@lang('sentence.InValid')</span>
                                         @endif
-                                    </td>
-                                    <td style="display: flex;">
-                                        <a class="btn btn-success  btn-sm" href="{{route('Booking.edit',$Booking->id)}}">
-                                            <i class="fa fa-edit"></i> 
-                                        </a>
-                                        <form method="POST" action="{{route('Booking.destroy',$Booking->id)}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger  btn-sm confirm">
-                                                <i class="fa fa-trash"></i> 
-                                            </button>
-                                        </form> 
                                     </td> 
                                 </tr>
                             @endforeach

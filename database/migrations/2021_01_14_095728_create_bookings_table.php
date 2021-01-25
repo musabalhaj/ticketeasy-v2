@@ -21,7 +21,7 @@ class CreateBookingsTable extends Migration
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->integer('seats');
             $table->double('amount');
-            $table->integer('ticket_status');
+            $table->integer('ticket_status')->default(1);
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

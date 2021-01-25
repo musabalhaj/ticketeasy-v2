@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 class ProfileController extends Controller
 {
     public function profile($id){  
@@ -32,6 +34,22 @@ class ProfileController extends Controller
 
         $User= User::where('id',$id)->findOrFail($id);
         if (!empty($request->password)) {
+            // fields you want to validate
+            $rules = array(
+                'name'=>'required|min:4|max:50',
+                'email'=>'required|email',
+                'password'=>'required|min:4|max:25|confirmed',
+            );
+
+            // validate all data that come from request
+            $validator = Validator::make($request->all(),$rules);
+
+            // check if you have errors in the data
+            if ($validator->fails()) {
+
+                return redirect()->back()->withErrors($validator);
+            }
+            // update after pass the validation
             $User->name = $request->name;
             $User->email = $request->email;
             $User->password = Hash::make($request->password);
