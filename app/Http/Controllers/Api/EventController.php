@@ -17,7 +17,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return Event::all();
+        return Event::where('status',0)->get();
     }
 
     /**
@@ -61,6 +61,7 @@ class EventController extends Controller
                 'title'=>$request->title,
                 'description'=>$request->description,
                 'tickets'=>$request->tickets,
+                'avilable_seats'=>$request->tickets,
                 'price'=>$request->price,
                 'date'=>$request->date,
                 'location'=>$request->location,
@@ -136,6 +137,7 @@ class EventController extends Controller
                     'title'=>$request->title,
                     'description'=>$request->description,
                     'tickets'=>$request->tickets,
+                    'avilable_seats'=>$request->tickets,
                     'price'=>$request->price,
                     'date'=>$request->date,
                     'location'=>$request->location,
@@ -152,6 +154,7 @@ class EventController extends Controller
                     'title'=>$request->title,
                     'description'=>$request->description,
                     'tickets'=>$request->tickets,
+                    'avilable_seats'=>$request->tickets,
                     'price'=>$request->price,
                     'date'=>$request->date,
                     'location'=>$request->location,

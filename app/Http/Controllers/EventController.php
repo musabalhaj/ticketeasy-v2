@@ -26,6 +26,8 @@ class EventController extends Controller
                     $Event = Event::paginate(10);
 
                     session()->flash('error','No Record With This Title');
+
+                    return redirect()->back();
                 }
             }
             else{
@@ -43,6 +45,8 @@ class EventController extends Controller
                     $Event = Event::where('organizer_id',auth()->user()->id)->paginate(10);
 
                     session()->flash('error','No Record With This Title');
+                    
+                    return redirect()->back();
                 }
             }
             else{
@@ -82,6 +86,7 @@ class EventController extends Controller
             'title'=>$request->title,
             'description'=>$request->description,
             'tickets'=>$request->tickets,
+            'avilable_seats'=>$request->tickets,
             'price'=>$request->price,
             'date'=>$request->date,
             'location'=>$request->location,
@@ -146,6 +151,7 @@ class EventController extends Controller
                 'title'=>$request->title,
                 'description'=>$request->description,
                 'tickets'=>$request->tickets,
+                'avilable_seats'=>$request->tickets,
                 'price'=>$request->price,
                 'date'=>$request->date,
                 'location'=>$request->location,
@@ -160,6 +166,7 @@ class EventController extends Controller
                 'title'=>$request->title,
                 'description'=>$request->description,
                 'tickets'=>$request->tickets,
+                'avilable_seats'=>$request->tickets,
                 'price'=>$request->price,
                 'date'=>$request->date,
                 'location'=>$request->location,

@@ -18,19 +18,23 @@ class BookingController extends Controller
     public function index(Request $request)
     {
         $Search = $request->search;
-        $userName = DB::table('users')->where('name','LIKE',"%{$Search}%")->where('role','User')->first();
+        $eventName = DB::table('events')->where('title','LIKE',"%{$Search}%")->first();
         if ($Search && $Search != ' ') {
-            if ($userName) {
-                $Booking = Booking::where('user_id','LIKE',"%{$userName->id}%")->paginate(10);
+            if ($eventName) {
+                $Booking = Booking::where('event_id','LIKE',"%{$eventName->id}%")->paginate(10);
                 if ($Booking->count() == 0) {
                     $Booking = Booking::paginate(10);
 
                     session()->flash('error','No Record With This Name');
+
+                    return redirect()->back();
                 }
             }
             else{
                 $Booking = Booking::paginate(10);
                 session()->flash('error','No Record With This Name');
+
+                return redirect()->back();
             }
         }
         else{

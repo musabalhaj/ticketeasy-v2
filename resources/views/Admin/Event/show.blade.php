@@ -32,6 +32,11 @@
         </li>
         <li class="nav-item">
             <p class="nav-link">
+                <i class="fa fa-list-ol"></i> @lang('sentence.Avilable Seats') <span class=" badge bg-info">{{$Event->avilable_seats}}</span>
+            </p>
+        </li>
+        <li class="nav-item">
+            <p class="nav-link">
                 <i class="fa fa-credit-card"></i> @lang('sentence.Price') <span class=" badge bg-info">{{ $Event->price }} @lang('sentence.SDG')</span>
             </p>
         </li>

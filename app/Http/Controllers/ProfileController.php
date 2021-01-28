@@ -39,6 +39,7 @@ class ProfileController extends Controller
                 'name'=>'required|min:4|max:50',
                 'email'=>'required|email',
                 'password'=>'required|min:4|max:25|confirmed',
+                'password_confirmation' => 'required',
             );
 
             // validate all data that come from request

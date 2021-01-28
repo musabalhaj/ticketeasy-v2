@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->bigInteger('tickets');
+            $table->integer('avilable_seats');
             $table->float('price' ,100);
             $table->date('date');
             $table->string('location');

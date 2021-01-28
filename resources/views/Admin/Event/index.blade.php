@@ -55,6 +55,7 @@
                                 <th>@lang('sentence.#ID')</th>
                                 <th>@lang('sentence.Title')</th>
                                 <th>@lang('sentence.Tickets')</th>
+                                <th>@lang('sentence.Avilable Seats')</th>
                                 <th>@lang('sentence.Price')</th>
                                 <th>@lang('sentence.Date')</th>
                                 <th>@lang('sentence.Organizer')</th>
@@ -68,6 +69,7 @@
                                     <td>{{ $v+1 }} </td>
                                     <td>{{ $Event->title }}</td>
                                     <td>{{ $Event->tickets }}</td>
+                                    <td>{{ $Event->avilable_seats }}</td>
                                     <td>{{ $Event->price }} @lang('sentence.SDG')</td>
                                     <td>{{Carbon\Carbon::parse($Event->date)->toFormattedDateString()}}</td>
                                     @foreach ($Users as $User)

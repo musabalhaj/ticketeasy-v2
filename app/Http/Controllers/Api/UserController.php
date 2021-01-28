@@ -21,16 +21,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,8 +32,8 @@ class UserController extends Controller
         $rules = array(
             'name'=>'required|min:4|max:50',
             'email'=>'required|unique:users|email',
-            'password'=>'required|min:4|max:25',
-            'password_confirmation' => 'required|same:password',
+            'password'=>'required|min:4|max:25|confirmed',
+            'password_confirmation' => 'required',
         );
 
         // validate all data that come from request
@@ -80,17 +70,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -106,6 +85,7 @@ class UserController extends Controller
                 'name'=>'required|min:4|max:50',
                 'email'=>'required|email',
                 'password'=>'required|min:4|max:25|confirmed',
+                'password_confirmation' => 'required',
             );
 
             // validate all data that come from request

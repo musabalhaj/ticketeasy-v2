@@ -27,6 +27,8 @@ class OrganizerController extends Controller
                 $Organizer = User::where('role','Organizer')->paginate(10);
 
                 session()->flash('error','No Record With This Name');
+
+                return redirect()->back();
             }
         }
         else{
@@ -106,6 +108,7 @@ class OrganizerController extends Controller
                 'name'=>'required|min:4|max:50',
                 'email'=>'required|email',
                 'password'=>'required|min:4|max:25|confirmed',
+                'password_confirmation' => 'required',
             );
 
             // validate all data that come from request

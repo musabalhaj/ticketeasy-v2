@@ -38,7 +38,7 @@
                     <form action="{{ route('Booking.index') }}" method="GET">
                         <div class="input-group input-group-sm">
                             <input type="text" class="form-control" name="search" value="{{ request()->query('search') }}"
-                            placeholder="@lang('sentence.Search By Name')" style="max-width: 373px;">
+                            placeholder="@lang('sentence.Search By Event')" style="max-width: 373px;">
                             <span class="input-group-append">
                               <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
                             </span>
