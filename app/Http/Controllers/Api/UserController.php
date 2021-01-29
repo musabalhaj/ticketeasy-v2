@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::where('role','User')->get();
+        return User::where('role','User')->orderByDesc('id')->get();
     }
 
     /**

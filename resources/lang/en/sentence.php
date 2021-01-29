@@ -79,6 +79,7 @@ return [
   'Email' => 'Email',
   'Password' => 'Password',
   'Role' => 'Role',
+  'Joined At' => 'Joined At',
   'Here You Can Add, Edit ,Delete Users.' => 'Here You Can Add, Edit ,Delete Users.',
   'Organizers' => 'Organizers',
   'Organizer' => 'Organizer',

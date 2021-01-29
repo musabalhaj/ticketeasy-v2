@@ -17,7 +17,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return Event::where('status',0)->get();
+        return Event::where('status',0)->orderByDesc('id')->get();
     }
 
     /**

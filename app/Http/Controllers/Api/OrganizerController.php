@@ -18,7 +18,7 @@ class OrganizerController extends Controller
      */
     public function index()
     {
-        return User::where('role','Organizer')->get();
+        return User::where('role','Organizer')->orderByDesc('id')->get();
     }
 
     /**

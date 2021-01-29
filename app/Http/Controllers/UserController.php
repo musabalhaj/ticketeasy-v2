@@ -21,9 +21,9 @@ class UserController extends Controller
     {
         $Search = $request->search;
         if ($Search && $Search != ' ') {
-            $User = User::where('name','LIKE',"%{$Search}%")->where('role','User')->paginate(10);
+            $User = User::where('name','LIKE',"%{$Search}%")->where('role','User')->orderByDesc('id')->paginate(20);
             if ($User->count() == 0) {
-                $User = User::where('role','User')->paginate(10);
+                $User = User::where('role','User')->orderByDesc('id')->paginate(20);
 
                 session()->flash('error','No Record With This Name');
 
@@ -31,7 +31,7 @@ class UserController extends Controller
             }
         }
         else{
-            $User = User::where('role','User')->paginate(10);
+            $User = User::where('role','User')->orderByDesc('id')->paginate(20);
         }
         return view('Admin/User.index')
         ->with('Users',$User);

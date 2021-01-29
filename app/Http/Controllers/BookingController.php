@@ -21,9 +21,9 @@ class BookingController extends Controller
         $eventName = DB::table('events')->where('title','LIKE',"%{$Search}%")->first();
         if ($Search && $Search != ' ') {
             if ($eventName) {
-                $Booking = Booking::where('event_id','LIKE',"%{$eventName->id}%")->paginate(10);
+                $Booking = Booking::where('event_id','LIKE',"%{$eventName->id}%")->orderByDesc('id')->paginate(20);
                 if ($Booking->count() == 0) {
-                    $Booking = Booking::paginate(10);
+                    $Booking = Booking::orderByDesc('id')->paginate(20);
 
                     session()->flash('error','No Record With This Name');
 
@@ -31,14 +31,14 @@ class BookingController extends Controller
                 }
             }
             else{
-                $Booking = Booking::paginate(10);
+                $Booking = Booking::orderByDesc('id')->paginate(20);
                 session()->flash('error','No Record With This Name');
 
                 return redirect()->back();
             }
         }
         else{
-            $Booking = Booking::paginate(10);
+            $Booking = Booking::orderByDesc('id')->paginate(20);
         }
         return view('Admin/Booking.index')
         ->with('Bookings', $Booking)

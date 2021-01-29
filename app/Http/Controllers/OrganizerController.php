@@ -22,9 +22,9 @@ class OrganizerController extends Controller
     {
         $Search = $request->search;
         if ($Search && $Search != ' ') {
-            $Organizer = User::where('name','LIKE',"%{$Search}%")->where('role','Organizer')->paginate(10);
+            $Organizer = User::where('name','LIKE',"%{$Search}%")->where('role','Organizer')->orderByDesc('id')->paginate(20);
             if ($Organizer->count() == 0) {
-                $Organizer = User::where('role','Organizer')->paginate(10);
+                $Organizer = User::where('role','Organizer')->orderByDesc('id')->paginate(20);
 
                 session()->flash('error','No Record With This Name');
 
@@ -32,7 +32,7 @@ class OrganizerController extends Controller
             }
         }
         else{
-            $Organizer = User::where('role','Organizer')->paginate(10);
+            $Organizer = User::where('role','Organizer')->orderByDesc('id')->paginate(20);
         }
         return view('Admin/Organizer.index')
         ->with('Organizers',$Organizer);

@@ -53,6 +53,7 @@
                                 <th>@lang('sentence.#ID')</th>
                                 <th>@lang('sentence.Name')</th>
                                 <th>@lang('sentence.Email')</th>
+                                <th>@lang('sentence.Joined At')</th>
                                 <th>@lang('sentence.Action')</th>
                             </tr>
                         </thead>
@@ -61,7 +62,8 @@
                                 <tr>
                                     <td>{{ $v+1 }} </td>
                                     <td>{{ $User->name }}</td>
-                                    <td>{{ $User->email }}
+                                    <td>{{ $User->email }}</td>
+                                    <td>{{Carbon\Carbon::parse($User->created_at)->toFormattedDateString()}}</td>
                                     <td style="display: flex;">
                                         <a class="btn btn-success btn-flat btn-sm" href="{{route('User.edit',$User->id)}}">
                                             <i class="fa fa-edit"></i> @lang('sentence.Edit')

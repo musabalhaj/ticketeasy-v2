@@ -21,9 +21,9 @@ class EventController extends Controller
             //----------------  Admin----------------//
         if (auth()->user()->role == 'Admin') {
             if ($Search && $Search != ' ') {
-                $Event = Event::where('title','LIKE',"%{$Search}%")->paginate(10);
+                $Event = Event::where('title','LIKE',"%{$Search}%")->orderByDesc('id')->paginate(20);
                 if ($Event->count() == 0) {
-                    $Event = Event::paginate(10);
+                    $Event = Event::orderByDesc('id')->paginate(20);
 
                     session()->flash('error','No Record With This Title');
 
@@ -31,7 +31,7 @@ class EventController extends Controller
                 }
             }
             else{
-                $Event = Event::paginate(10);
+                $Event = Event::orderByDesc('id')->paginate(20);
             }
             return view('Admin/Event.index')
             ->with('Events', $Event)
@@ -40,9 +40,9 @@ class EventController extends Controller
            //----------------  Organizer----------------// 
         else{
             if ($Search && $Search != ' ') {
-                $Event = Event::where('title','LIKE',"%{$Search}%")->where('organizer_id',auth()->user()->id)->paginate(10);
+                $Event = Event::where('title','LIKE',"%{$Search}%")->where('organizer_id',auth()->user()->id)->orderByDesc('id')->paginate(20);
                 if ($Event->count() == 0) {
-                    $Event = Event::where('organizer_id',auth()->user()->id)->paginate(10);
+                    $Event = Event::where('organizer_id',auth()->user()->id)->orderByDesc('id')->paginate(20);
 
                     session()->flash('error','No Record With This Title');
                     
@@ -50,7 +50,7 @@ class EventController extends Controller
                 }
             }
             else{
-                $Event = Event::where('organizer_id',auth()->user()->id)->paginate(10);
+                $Event = Event::where('organizer_id',auth()->user()->id)->orderByDesc('id')->paginate(20);
             }
             return view('Admin/Event.organizerEvent')
             ->with('Events', $Event);
