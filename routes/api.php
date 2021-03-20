@@ -50,7 +50,8 @@ Route::group(['middleware' => ['auth:api']], function () {
         'User' => 'Api\UserController',
         'Organizer' => 'Api\OrganizerController',
         'Event' => 'Api\EventController',
+        'Booking' => 'Api\BookingController',
     ]); 
 });
 
-Route::apiResource('Booking','Api\BookingController');
+// Route::apiResource('Booking','Api\BookingController');
